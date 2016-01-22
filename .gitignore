@@ -1,0 +1,13 @@
+/target
+/classes
+/checkouts
+pom.xml
+pom.xml.asc
+*.jar
+*.class
+/.lein-*
+/.nrepl-port
+/clojure-contrib-src.jar
+/clojure-contrib.jar
+/clojure-src.jar
+/clojure.jar

@@ -1,4 +1,4 @@
-(ns main)
+(ns practicalclj)
 
 (ns my-namespace
   (:require [dodatni :as dod]))

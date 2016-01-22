@@ -1,3 +1,2 @@
-#Sat Oct 08 15:59:25 CEST 2011
-cmdhistory=["wqegqeg" "(zika)" "zika" "(ns my-namespace\\n  (\:require [dodatni \:as dod]))" "ss" "(hello-world)" "(saberi 9 8)" "(saberi 3.6 9.8)" "(saberi 3.6 \\"wwdw\\")" "(re-seq \#\\" [a-z] \\" \\"test\\")"]
+cmdhistory=["(foo)" "(foo \\"ddd\\")" "(+ 5 6)" "(ns qwerty.core)" "(ns qwerty.core\\r\\n  (\:require [net.cgrand.enlive-html \:as html])\\r\\n  (\:require [clj-time.core \:as time])\\r\\n  (\:require [clj-time.format \:as time-format])\\r\\n  (\:require [clojure.java.jdbc \:as j]))" "(ns qwerty.core)" "fn" "do" "let" "(ns qwerty.core)" "(ns qwerty.web)"]
 eclipse.preferences.version=1
