@@ -97,16 +97,3 @@
 
 (stop schedule)
 
-(defn set-ref-value [r val]
-  (dosync 
-    (ref-set r val)))
-
-(def uslov (ref true))
-@uslov
-(set-ref-value uslov true)
-(set-ref-value uslov false)
-
-(while @uslov
-  (println "eeg")
-  (java.lang.Thread/sleep 3000))
-
