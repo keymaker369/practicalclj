@@ -86,6 +86,27 @@
 
 
 (def my-pool (mk-pool))
-(def schedule (every 1000 #(i-am-cool @account1) my-pool))
+(def schedule 
+  (every 1000 
+         #(do 
+            (i-am-cool @account1)
+            (let [wait-time (* 20000 (java.lang.Math/random))]
+              (println "Sleeping for: " wait-time)
+              (java.lang.Thread/sleep wait-time)))
+         my-pool))
+
 (stop schedule)
+
+(defn set-ref-value [r val]
+  (dosync 
+    (ref-set r val)))
+
+(def uslov (ref true))
+@uslov
+(set-ref-value uslov true)
+(set-ref-value uslov false)
+
+(while @uslov
+  (println "eeg")
+  (java.lang.Thread/sleep 3000))
 
