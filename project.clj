@@ -7,6 +7,7 @@
   :ring {:handler qwerty.web/handler}
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [enlive "1.1.6"]
+                 [clj-http "2.0.1"]
                  [overtone/at-at "1.2.0"]
                  [clj-time "0.8.0"]
                  [org.clojure/java.jdbc "0.4.1"]
