@@ -11,3 +11,5 @@ pom.xml.asc
 /clojure-contrib.jar
 /clojure-src.jar
 /clojure.jar
+/bin/**
+/bin/qwerty/csv_manipulation.clj

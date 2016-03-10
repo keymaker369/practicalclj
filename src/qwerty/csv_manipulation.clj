@@ -3,8 +3,8 @@
            [clojure-csv.core :as csv]
            [clojure.java.io :as io]))
 
-(def old-file "d:/ftp/24589/20160309_requestId_676_null_DEALS.CSV")
-(def new-file "d:/ftp/24589/20160309_requestId_675_null_DEALS.CSV")
+(def old-file "c:/Users/user/Google Drive/imports/20160309_requestId_676_null_DEALS.csv")
+(def new-file "c:/Users/user/Google Drive/imports/20160309_requestId_675_null_DEALS.csv")
 
 (with-open [in-file (io/reader old-file)]
   (->>
@@ -34,13 +34,31 @@
       (println (first old-headers))
       (recur (rest old-headers)))))
 
+(defn in? 
+  "true if coll contains elm"
+  [coll elm]  
+  (some #(= elm %) coll))
+
+(defn in? 
+  "true if coll contains elm (ignore case)"
+  [coll elm]  
+  (some 
+    #(= % (.toLowerCase elm)) 
+    (map #(.toLowerCase %) coll)))
+
+(not (in? '("aaa" "BBB") "bbB"))
+
+(filter 
+  #(not (in? (get-headers new-file) % ))
+  (get-headers old-file)) 
+
 
 (with-open [in-file (io/reader old-file)]
   (->>
     (csv/parse-csv in-file)
-    ;mappify
+    mappify
     doall
-    count))
+    second))
 
 (def sample-file "d:/ftp/24589/sample.csv")
 
