@@ -5,7 +5,7 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :plugins [[lein-ring "0.8.11"]]
   :ring {:handler qwerty.web/handler}
-  :dependencies [[org.clojure/clojure "1.6.0"]
+  :dependencies [[org.clojure/clojure "1.8.0"]
                  [enlive "1.1.6"]
                  [clj-http "2.0.1"]
                  [overtone/at-at "1.2.0"]
@@ -15,4 +15,5 @@
                  [org.clojure/data.json "0.2.6"]
                  [liberator "0.13"]
                  [compojure "1.3.4"]
-                 [ring/ring-core "1.2.1"]])
+                 [ring/ring-core "1.2.1"]
+                 [semantic-csv "0.1.0"]])
