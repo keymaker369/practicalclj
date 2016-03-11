@@ -16,4 +16,6 @@
                  [liberator "0.13"]
                  [compojure "1.3.4"]
                  [ring/ring-core "1.2.1"]
-                 [semantic-csv "0.1.0"]])
+                 [semantic-csv "0.1.0"]
+                 [net.mikera/core.matrix "0.50.0"]
+                 [org.clojure/math.combinatorics "0.1.1"]])
