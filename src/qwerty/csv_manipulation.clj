@@ -5,8 +5,8 @@
            [clojure.core.matrix :as mtx]
            [clojure.math.combinatorics :as cmb]))
 
-(def old-file "d:/ftp/24589/20160310_requestId_692_null_DEALS-old.csv")
-(def new-file "d:/ftp/24589/20160310_requestId_693_null_DEALS-new.csv")
+(def old-file "d:/ftp/24589/20160311_requestId_695_null_DEALS-old.csv")
+(def new-file "d:/ftp/24589/20160311_requestId_694_null_DEALS-new.csv")
 
 (defn get-headers 
   "return vector of strings"
