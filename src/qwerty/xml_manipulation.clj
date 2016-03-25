@@ -1,10 +1,29 @@
 (ns qwerty.xml-manipulation
    (:require
      [clojure.java.io :as io]
+     [clojure.xml :as c-xml]
      [clojure.zip :as zip]
      [clojure.data.zip.xml :as zx]
      [clojure.data.xml :as xml]))
 
+(defn dbg [node]
+    (if (associative? node)
+      (c-xml/emit-element (dissoc node :content))
+      (c-xml/emit-element node))
+  node)
+
+(defn as-short-xml [node]
+  (clojure.string/trim ; remove trailing \n
+    (with-out-str
+      (if (associative? node)
+        (c-xml/emit-element (dissoc node :content))
+        (c-xml/emit-element node)))))
+
+(defn dz [zipper] (do
+                    (dbg (clojure.zip/node zipper))
+                    zipper)) ; return the zipper for more processing
+
+(defn az [zipper] (as-short-xml (clojure.zip/node zipper)))
 
 (def file )
   
@@ -15,21 +34,25 @@
 
 (zip/xml-zip xml)
 
-(-> "a b c d"
-  .toUpperCase 
- (.replace "A" "X") 
- (.split " ") 
- first)
+(-> xml
+    zip/xml-zip
+    zip/down
+    dz
+    zip/right
+    dz
+    zip/down
+    az
+    )
+;http://josf.info/blog/2014/04/14/seqs-of-clojure-zippers/
+;http://josf.info/blog/2014/03/21/getting-acquainted-with-clojure-zippers/
+;http://josf.info/blog/2014/03/28/clojure-zippers-structure-editing-with-your-mind/
+(zip/vector-zip [1 [:a :b] 2 3 [40 50 60]])
 
-(.toUpperCase "a b c d")
+(->[1 [:a :b] 2 3 [40 50 60]]
+  zip/vector-zip 
+  zip/down
+  zip/right)
 
-(.replace (.toUpperCase "a b c d") "A" "X")
+(def zzz (zip/vector-zip [1 [:a :b] 2 3 [40 50 60]]))
 
-(first (.split (.replace (.toUpperCase "a b c d") "A" "X") " "))
-
-(def c 5)
-
-(->> c 
-  (+ 3) 
-  (/ 2) 
-  (- 1))
+(-> zzz zip/next zip/next zip/next zip/next zip/next zip/next zip/next zip/next zip/next zip/next zip/next)
