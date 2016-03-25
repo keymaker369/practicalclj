@@ -18,4 +18,6 @@
                  [ring/ring-core "1.2.1"]
                  [semantic-csv "0.1.0"]
                  [net.mikera/core.matrix "0.50.0"]
-                 [org.clojure/math.combinatorics "0.1.1"]])
+                 [org.clojure/math.combinatorics "0.1.1"]
+                 [org.clojure/data.xml "0.0.8"]
+                 [org.clojure/data.zip "0.1.1"]])
