@@ -13,3 +13,6 @@ pom.xml.asc
 /clojure.jar
 /bin/**
 /bin/qwerty/csv_manipulation.clj
+/.idea/libraries
+/.idea
+/qwerty.iml
