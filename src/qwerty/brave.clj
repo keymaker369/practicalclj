@@ -55,9 +55,6 @@
           []
           asym-body-parts))
 
-;izracunaj sumu svih delova.
-;uzmi random broj izmedju 0 i sume svih delova
-;idi redom deo po deo i proveravaj da li je suma trenutnih delova veca od random broja. ako jeste vrati ga
 (defn hit-body-part
   [asym-body-parts]
   (let [sym-body-parts (better-symmetrize-body-parts asym-body-parts)
