@@ -55,5 +55,22 @@
           []
           asym-body-parts))
 
+;izracunaj sumu svih delova.
+;uzmi random broj izmedju 0 i sume svih delova
+;idi redom deo po deo i proveravaj da li je suma trenutnih delova veca od random broja. ako jeste vrati ga
+(defn hit-body-part
+  [asym-body-parts]
+  (let [sym-body-parts (better-symmetrize-body-parts asym-body-parts)
+        all-parts-sum (reduce + (map :size sym-body-parts))
+        hit-limit (rand all-parts-sum)]
+    (println all-parts-sum)
+    (println hit-limit)
+    (loop [[part & remaining] sym-body-parts
+           current-limit (:size part)]
+      (println part)
+      (if (> current-limit hit-limit)
+        part
+        (recur remaining (+ current-limit (:size (first remaining))))))))
+
 ;expand-body-parts
 
