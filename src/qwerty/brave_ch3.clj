@@ -1,4 +1,4 @@
-(ns qwerty.brave
+(ns qwerty.brave-ch3
   (use clojure.repl))
 
 (defn my-reduce
@@ -69,5 +69,28 @@
         part
         (recur remaining (+ current-limit (:size (first remaining))))))))
 
-;expand-body-parts
+(defn mapset [f coll]
+  (set (map f coll)))
 
+(defn matching-parts
+  [part]
+  (hash-set
+    {:name (clojure.string/replace (:name part) #"^left-" "top-")
+     :size (:size part)}
+    {:name (clojure.string/replace (:name part) #"^left-" "upper-left-")
+     :size (:size part)}
+    {:name (clojure.string/replace (:name part) #"^left-" "upper-right-")
+     :size (:size part)}
+    {:name (clojure.string/replace (:name part) #"^left-" "down-left-")
+     :size (:size part)}
+    {:name (clojure.string/replace (:name part) #"^left-" "down-right-")
+     :size (:size part)}
+    ))
+
+(defn radial-symmetrize-body-parts
+  "Expects a seq of maps that have a :name and :size"
+  [asym-body-parts]
+  (reduce (fn [final-body-parts part]
+            (into final-body-parts (matching-parts part)))
+          []
+          asym-body-parts))
