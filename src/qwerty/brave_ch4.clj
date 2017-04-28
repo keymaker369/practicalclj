@@ -94,6 +94,8 @@
   (Thread/sleep 1000)
   (get vampire-database social-security-number))
 
+(time (vampire-related-details 0))
+
 (defn vampire?
   [record]
   (and (:makes-blood-puns? record)
@@ -105,7 +107,7 @@
   (first (filter vampire?
                  (map vampire-related-details social-security-numbers))))
 
-(time (vampire-related-details 0))
+(time (identify-vampire [0 1 2 3]))
 
 (time (def mapped-details (map vampire-related-details (range 0 1000000))))
 
@@ -115,4 +117,81 @@
 
 (time (identify-vampire (range 0 1000000)))
 
+(nth (repeat "na") 10)
+
+(take 15 (repeatedly (fn [] (rand 10))))
+
+(cons 0 '(2 4 6))
+
+(defn even-numbers
+  ([] (even-numbers 0))
+  ([n] (cons n (lazy-seq (even-numbers (+ n 2))))))
+
+(take 10 (even-numbers))
+
+(time (nth (even-numbers) 20000000))
+
+(empty [])
+
+(empty? '())
+
+(empty? (even-numbers))
+
+(count '(0 1 * + 7))
+
+(every? number? [1 2 5 4 ""])
+
+(every? number? (even-numbers))
+
+(map identity {:sunlight-reaction "Glitter!", :b "Ccc"})
+
+(into {} (map identity {:sunlight-reaction "Glitter!", :b "Ccc"}))
+
+(into {:favorite-emotion "gloomy"} [[:sunlight-reaction "Glitter!"]])
+
+(into ["cherry"] '("pine" "spruce"))
+
+(into {:favorite-animal "kitty"} {:least-favorite-smell "dog"
+                                  :relationship-with-teenager "creepy"})
+
+(conj [0] [1 2 3])
+
+(conj [0] 1)
+
+(conj [0] 1 2 3 4 5)
+
+(conj {:time "midnight"} {:place "ye olde cemetarium" :who "somebody"})
+
+(defn my-conj
+  [target & additions]
+  (into target additions))
+
+(my-conj [0] 1 2 3)
+
+(max 0 1 2)
+
+(max [0 1 2])
+
+(apply max [0 1 2])
+
+(defn my-into
+  [target additions]
+  (apply conj target additions))
+
+(apply conj [0] [1 2 3 4 5])
+
+(def add10 (partial + 10))
+(add10 3)
+
+(add10 5)
+
+(def add-missing-elements
+  (partial conj ["water" "earth" "air"]))
+
+(add-missing-elements "unobtainium" "adamantium")
+
+(defn my-partial
+  [partialized-fn & args]
+  (fn [& more-args]
+    (apply partialized-fn (into args more-args))))
 
