@@ -5,6 +5,7 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :plugins [[lein-ring "0.8.11"]]
   :ring {:handler qwerty.web/handler}
+  :repositories {"jitpack.io" "https://jitpack.io"}
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [enlive "1.1.6"]
                  [clj-http "2.0.1"]
@@ -20,4 +21,5 @@
                  [net.mikera/core.matrix "0.50.0"]
                  [org.clojure/math.combinatorics "0.1.1"]
                  [org.clojure/data.xml "0.0.8"]
-                 [org.clojure/data.zip "0.1.1"]])
+                 [org.clojure/data.zip "0.1.1"]
+                 [com.github.ui4j.ui4j/ui4j-all "2.2.5"]])

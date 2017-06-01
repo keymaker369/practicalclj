@@ -38,3 +38,4 @@
 (map vector vamp-keys ["Edward Cullen" "10"])
 
 (vector (first vamp-keys) "Edward Cullen")
+
