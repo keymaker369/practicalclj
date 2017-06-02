@@ -29,3 +29,6 @@
 
 (defn scroll-to-bottom [page]
   (.executeScript page "window.scrollTo(0,document.body.scrollHeight)"))
+
+(defn href [element]
+  (.getAttribute element "href"))
