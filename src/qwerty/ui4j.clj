@@ -1,13 +1,13 @@
 (ns qwerty.ui4j)
 
 (defn browser []
-  (com.ui4j.api.browser.BrowserFactory/getWebKit))
+  (io.webfolder.ui4j.api.browser.BrowserFactory/getWebKit))
 
 (defn page [page-url browser]
   (.navigate browser page-url))
 
 (defn document [page]
-  (.getDocument page))                                                       ;
+  (.getDocument page))
 
 (defn query [selector document]
   (.query document selector))
@@ -23,6 +23,12 @@
 
 (defn show [page]
   (.show page))
+
+(defn close [page]
+  (.close page))
+
+(defn hide [page]
+  (.hide page))
 
 (defn execute-script [page javascript]
   (.executeScript page javascript))

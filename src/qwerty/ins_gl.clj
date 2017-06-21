@@ -3,7 +3,7 @@
   (require [qwerty.ui4j :as ui4j]))
 
 (def browser (ui4j/browser))
-(def page (ui4j/page "" browser))
+(def page (ui4j/page "http://yahoo.com" browser))
 (def doc (ui4j/document page))
 
 (count (ui4j/query-all "._myci9" doc))
@@ -14,6 +14,7 @@
   (ui4j/click load-more-button))
 
 (ui4j/show page)
+(ui4j/hide page)
 
 (ui4j/scroll-to-bottom page)
 

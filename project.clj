@@ -22,4 +22,4 @@
                  [org.clojure/math.combinatorics "0.1.1"]
                  [org.clojure/data.xml "0.0.8"]
                  [org.clojure/data.zip "0.1.1"]
-                 [com.github.ui4j.ui4j/ui4j-all "2.2.5"]])
+                 [io.webfolder/ui4j-webkit "3.0.0"]])
