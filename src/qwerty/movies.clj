@@ -8,19 +8,14 @@
 
 (def movies (line-seq (clojure.java.io/reader "d:/movies.txt")))
 
-(defn movie-present? [movie-name]
-  (some? (filter #(some?
-                    (re-seq
-                      (re-pattern (.toLowerCase movie-name)) (.toLowerCase %)))
-                 movies)))
+(defn match-string [matching-string string-coll]
+  (not (empty? (filter #(seq?
+                          (re-seq
+                            (re-pattern (.toLowerCase matching-string)) (.toLowerCase %)))
+                       string-coll))))
 
-(some? (filter #(some?
-                  (re-seq
-                    (re-pattern (.toLowerCase "The House122")) (.toLowerCase %)))
-               movies))
+(match-string "Valeri" movies)
 
-(movie-present? "The House111")
 
-(some? (re-seq (re-pattern (.toLowerCase "The House")) (.toLowerCase "The House")))
 
 
