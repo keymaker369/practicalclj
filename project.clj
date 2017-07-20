@@ -11,7 +11,7 @@
                  [clj-http "2.0.1"]
                  [overtone/at-at "1.2.0"]
                  [clj-time "0.8.0"]
-                 [org.clojure/java.jdbc "0.4.1"]
+                 [org.clojure/java.jdbc "0.7.0"]
                  [mysql/mysql-connector-java "5.1.6"]
                  [org.clojure/data.json "0.2.6"]
                  [liberator "0.13"]
