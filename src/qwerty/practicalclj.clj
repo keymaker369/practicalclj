@@ -8,7 +8,7 @@
 
 (println "hello world")
 
-(defn zika "ZIKA!")
+(def zika "ZIKA!")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defn rangechecker
   "Returns a function that determines if a number is in a provided range."

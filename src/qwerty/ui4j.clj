@@ -1,5 +1,7 @@
 (ns qwerty.ui4j)
 
+(System/setProperty "webdriver.gecko.driver", "c:/apps/geckodriver.exe")
+
 (defn browser []
   (io.webfolder.ui4j.api.browser.BrowserFactory/getWebKit))
 

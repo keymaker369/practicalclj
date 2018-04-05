@@ -1,12 +1,11 @@
-(ns qwerty.ins-gl
-  (use clojure.core)
-  (require [qwerty.ui4j :as ui4j]))
+(ns qwerty.insgl)
+(require '[qwerty.ui4j :as ui4j])
 
 (def browser (ui4j/browser))
-(def page (ui4j/page "http://yahoo.com" browser))
+(def page (ui4j/page "https://..." browser))
 (def doc (ui4j/document page))
 
-(count (ui4j/query-all "._myci9" doc))
+(count (ui4j/query-all "._6d3hm._mnav9" doc))
 
 (def load-more-button (ui4j/query "._8imhp._glz1g" doc))
 
@@ -19,7 +18,7 @@
 (ui4j/scroll-to-bottom page)
 
 (def driples
-  (loop [elements (ui4j/query-all "._myci9" doc)
+  (loop [elements (ui4j/query-all "._6d3hm._mnav9" doc)
         elements-ammount 0
         load-attepts-left 3]
    (if (= (count elements) elements-ammount)
@@ -27,14 +26,14 @@
        (do
          (ui4j/scroll-to-bottom page)
          (Thread/sleep 1000)
-         (recur (ui4j/query-all "._myci9" doc)
+         (recur (ui4j/query-all "._6d3hm._mnav9" doc)
                 elements-ammount
                 (- load-attepts-left 1)))
        elements)
      (do
        (ui4j/scroll-to-bottom page)
        (Thread/sleep 1000)
-       (recur (ui4j/query-all "._myci9" doc) (count elements) 3)))))
+       (recur (ui4j/query-all "._6d3hm._mnav9" doc) (count elements) 3)))))
 
 (def elements driples)
 
